@@ -12,7 +12,7 @@ fn main() -> std::io::Result<()> {
     br.read_to_string(&mut contents)?;
     let ranges: Vec<&str> = contents.trim().split(',').collect();
 
-    let re = Regex::new(r"^(\d+)(\1)$").expect("should be valid regex");
+    let re = Regex::new(r"^(\d+)(\1+)$").expect("should be valid regex");
     let mut result = 0;
 
     for range in ranges {
